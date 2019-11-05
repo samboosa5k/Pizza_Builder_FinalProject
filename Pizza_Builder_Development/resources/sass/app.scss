@@ -1,1 +1,14 @@
+* {
+    margin: 0;
+}
 
+#login {
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.navBar-admin {
+    height: 100%;
+    background-color: coral;
+}

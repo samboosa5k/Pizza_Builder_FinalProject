@@ -33,7 +33,6 @@ class PassportController extends Controller
     {
         $credentials = ['email' => $request->email, 'password' => $request->password];
 
-
         if (auth()->attempt($credentials)) {
             $token = Auth::user()->createToken('pizza_builder')->accessToken;
             return response()->json([
