@@ -17,6 +17,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+//  AUTHENTICATION ETC
 Route::group([
     'prefix' => 'auth'
 ], function () {
@@ -31,3 +32,6 @@ Route::group([
         Route::get('user', 'PassportController@user');
     });
 });
+
+//  INGREDIENTS
+Route::get('ingredients', 'IngredientController@index');

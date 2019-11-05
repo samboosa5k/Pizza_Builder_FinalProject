@@ -1,5 +1,11 @@
+@import 'menu-admin.scss';
+@import 'ingredients-admin.scss';
+
 * {
     margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 400;
 }
 
 #login {
@@ -9,6 +15,13 @@
 }
 
 .navBar-admin {
+    display: flex;
+    flex-direction: column;
     height: 100%;
-    background-color: coral;
+    background-color: rgb(48, 48, 48);
+}
+
+.mainContent-admin {
+    width: auto;
+    height: 100;
 }

@@ -1,5 +1,37 @@
+.menu-admin {
+  margin: 1rem;
+  text-align: center;
+  color: white;
+}
+
+.menu-admin__item {
+  padding: 1rem;
+  background-color: #34343f;
+  color: white;
+  text-shadow: 1px 1px 1px black;
+  list-style-type: none;
+}
+
+.menu-admin__logout {
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  color: white;
+  background-color: coral;
+}
+
+.ingredients-single {
+  padding: 1rem;
+  box-shadow: 0.2rem 0.2rem 0.2rem gray;
+}
+
 * {
   margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 400;
 }
 
 #login {
@@ -12,7 +44,17 @@
 }
 
 .navBar-admin {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
   height: 100%;
-  background-color: coral;
+  background-color: #303030;
+}
+
+.mainContent-admin {
+  width: auto;
+  height: 100;
 }
 

@@ -9,13 +9,13 @@ class NavBar extends React.Component {
         return (
             <div className="navBar-admin">
                 <ul>
-                    <li>Open Orders</li>
-                    <li>Past Orders</li>
-                    <li>Available Ingredients</li>
-                    <li>Registered Customers</li>
+                    <a href="#" onClick={this.props.menuClick}><li id="open-orders" className="menu-admin__item">Open Orders</li></a>
+                    <a href="#" onClick={this.props.menuClick}><li id="past-orders" className="menu-admin__item">Past Orders</li></a>
+                    <a href="#" onClick={this.props.menuClick}><li id="available-ingredients" className="menu-admin__item">Available Ingredients</li></a>
+                    <a href="#" onClick={this.props.menuClick}><li id="registered-customers" className="menu-admin__item">Registered Customers</li></a>
                 </ul>
 
-                <a href="#" onClick={this.props.handleLogout}><strong>Logout babyyyy!</strong></a>
+                <a href="#" onClick={this.props.handleLogout} className="menu-admin__logout"><strong>Logout babyyyy!</strong></a>
             </div>
         )
     }

@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import NavBar from './admin_components/NavBar';
+import MainContent from './admin_components/MainContent';
 
 class Admin extends React.Component {
     constructor( props ) {
@@ -9,10 +10,12 @@ class Admin extends React.Component {
             token: '',
             status: '',
             apiResponse: '',
-            error: ''
+            content: '',
+            error: '',
         }
 
         this.loadAdmin = this.loadAdmin.bind( this );
+        this.menuClick = this.menuClick.bind( this );
     }
 
     loadAdmin() {
@@ -34,10 +37,16 @@ class Admin extends React.Component {
         this.loadAdmin();
     }
 
+    menuClick( event ) {
+        event.preventDefault();
+        this.setState( { content: event.target.id } );
+    }
+
     render() {
         return (
             <>
-                <NavBar handleLogout={this.props.handleLogout} />
+                <NavBar handleLogout={this.props.handleLogout} menuClick={this.menuClick} />
+                <MainContent content={this.state.content} />
             </>
         )
     }

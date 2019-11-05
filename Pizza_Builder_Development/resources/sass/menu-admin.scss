@@ -1,0 +1,23 @@
+.menu-admin {
+    margin: 1rem;
+    text-align: center;
+    color: white;
+
+    &__item {
+        padding: 1rem;
+        background-color: rgb(52, 52, 63);
+        color: white;
+        text-shadow: 1px 1px 1px black;
+        list-style-type: none;
+    }
+
+    &__logout {
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        padding: 1rem;
+        color: white;
+        background-color: coral;
+    }
+}
