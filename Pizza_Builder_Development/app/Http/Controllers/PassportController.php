@@ -37,7 +37,8 @@ class PassportController extends Controller
             $token = Auth::user()->createToken('pizza_builder')->accessToken;
             return response()->json([
                 'token' => $token,
-                'token_type' => 'Bearer'
+                'token_type' => 'Bearer',
+                'message' => 'Authorized'
             ], 200);
         } else {
             return response()->json(['error' => 'Unauthorized'], 401);

@@ -51359,7 +51359,7 @@ function (_React$Component) {
       if (this.state.status !== '') {
         this.setState({
           status: 'logged_out'
-        });
+        }); //  If there is no status, stay logged out
       } else {
         fetch('http://127.0.0.1:8000/api/auth/login', {
           method: 'POST',
@@ -51376,7 +51376,7 @@ function (_React$Component) {
         }).then(function (response) {
           return response.json();
         }).then(function (data) {
-          if (data['error'] === 'Unauthorized') {
+          if (data['message'] !== 'Authorized') {
             // This is where we check if error comes back
             _this2.setState({
               error: data['error']
@@ -51389,7 +51389,8 @@ function (_React$Component) {
               status: 'logged_in'
             });
 
-            _this2.setToken(data.data.token);
+            _this2.setToken(data.token); //console.log( data.token );  //  This logs the current token after a successful login :D
+
           }
         });
       }
@@ -51421,37 +51422,42 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      if (this.state.status === 'logged_in') {
+      //  Below if-condition checks what to do if status is logged in, OR if
+      if (this.state.status === 'logged_in' || window.localStorage.getItem('_token') !== null) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Admin__WEBPACK_IMPORTED_MODULE_2__["default"], {
           token: this.state.token,
           handleLogout: this.handleLogout
         });
       } else {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-          className: "form-group",
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "admin-login__wrapper"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+          className: "admin-login__header"
+        }, "Admin Login"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+          className: "form-group admin-login__form",
           onSubmit: this.handleLogin
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+          className: "admin-login__label",
           htmlFor: "email"
         }, "Email address:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           type: "email",
-          className: "form-control",
+          className: "admin-login__input",
           id: "email",
           name: "email",
           onChange: this.handleChange
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "form-group"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+          className: "admin-login__label",
           htmlFor: "pwd"
         }, "Password:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           type: "password",
-          className: "form-control",
+          className: "admin-login__input",
           id: "password",
           name: "password",
           onChange: this.handleChange
-        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           type: "submit",
-          className: "btn btn-default"
-        }, "Submit")));
+          className: "btn btn-default admin-login__button"
+        }, "Submit"))));
       }
     }
   }]);
@@ -51461,8 +51467,8 @@ function (_React$Component) {
 
 /* harmony default export */ __webpack_exports__["default"] = (Login);
 
-if (document.getElementById('login')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Login, null), document.getElementById('login'));
+if (document.getElementById('app')) {
+  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Login, null), document.getElementById('app'));
 }
 
 /***/ }),
@@ -51538,7 +51544,13 @@ function (_React$Component) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             key: index,
             className: "ingredients-single"
-          }, elem.name);
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Name: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+            className: "ingredients-single__element"
+          }, elem.name)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Category: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+            className: "ingredients-single__element"
+          }, elem.category)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Amount: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+            className: "ingredients-single__element"
+          }, elem.amount, " ", elem.units)));
         });
       }
 

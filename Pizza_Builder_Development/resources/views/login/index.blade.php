@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <div id="login"></div>
+    <div id="app"></div>
 </body>
 
 </html>

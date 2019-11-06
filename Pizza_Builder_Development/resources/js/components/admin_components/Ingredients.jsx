@@ -22,7 +22,15 @@ class Ingredients extends React.Component {
         if ( this.state.apiResponse !== '' ) {
             apiResponse = this.state.apiResponse.map( ( elem, index ) => (
                 <div key={index} className="ingredients-single">
-                    {elem.name}
+                    <div>
+                        Name: <span className="ingredients-single__element">{elem.name}</span>
+                    </div>
+                    <div>
+                        Category: <span className="ingredients-single__element">{elem.category}</span>
+                    </div>
+                    <div>
+                        Amount: <span className="ingredients-single__element">{elem.amount} {elem.units}</span>
+                    </div>
                 </div>
             ) )
         }

@@ -22,7 +22,7 @@ class Login extends React.Component {
         event.preventDefault(); // Prevent form redirect
 
         if ( this.state.status !== '' ) {
-            this.setState( { status: 'logged_out' } );
+            this.setState( { status: 'logged_out' } );                  //  If there is no status, stay logged out
         } else {
             fetch( 'http://127.0.0.1:8000/api/auth/login', {
                 method: 'POST',
@@ -39,14 +39,15 @@ class Login extends React.Component {
             } )
                 .then( response => response.json() )
                 .then( data => {
-                    if ( data['error'] === 'Unauthorized' ) {   // This is where we check if error comes back
+                    if ( data['message'] !== 'Authorized' ) {   // This is where we check if error comes back
                         this.setState( { error: data['error'] } );  // If an error comes back, state->error will be filled
                     } else {
                         this.setState( {    //  This is what will happen if log in is successful
                             token: data,
                             status: 'logged_in'
                         } );
-                        this.setToken( data.data.token );
+                        this.setToken( data.token );
+                        //console.log( data.token );  //  This logs the current token after a successful login :D
                     }
                 } )
         }
@@ -74,21 +75,25 @@ class Login extends React.Component {
     }
 
     render() {
-        if ( this.state.status === 'logged_in' ) {
+        //  Below if-condition checks what to do if status is logged in, OR if
+        if ( this.state.status === 'logged_in' || window.localStorage.getItem( '_token' ) !== null ) {
+
             return <Admin token={this.state.token} handleLogout={this.handleLogout} />
         } else {
             return (
                 <>
-                    <form className="form-group" onSubmit={this.handleLogin}>
-                        <label htmlFor="email">Email address:</label>
-                        <input type="email" className="form-control" id="email" name="email" onChange={this.handleChange} />
+                    <div className="admin-login__wrapper">
+                        <h1 className="admin-login__header">Admin Login</h1>
+                        <form className="form-group admin-login__form" onSubmit={this.handleLogin}>
+                            <label className="admin-login__label" htmlFor="email">Email address:</label>
+                            <input type="email" className="admin-login__input" id="email" name="email" onChange={this.handleChange} />
 
-                        <div className="form-group">
-                            <label htmlFor="pwd">Password:</label>
-                            <input type="password" className="form-control" id="password" name="password" onChange={this.handleChange} />
-                        </div>
-                        <button type="submit" className="btn btn-default">Submit</button>
-                    </form>
+                            <label className="admin-login__label" htmlFor="pwd">Password:</label>
+                            <input type="password" className="admin-login__input" id="password" name="password" onChange={this.handleChange} />
+
+                            <button type="submit" className="btn btn-default admin-login__button">Submit</button>
+                        </form>
+                    </div>
                 </>
             )
         }
@@ -97,6 +102,6 @@ class Login extends React.Component {
 
 export default Login;
 
-if ( document.getElementById( 'login' ) ) {
-    ReactDOM.render( <Login />, document.getElementById( 'login' ) );
+if ( document.getElementById( 'app' ) ) {
+    ReactDOM.render( <Login />, document.getElementById( 'app' ) );
 }

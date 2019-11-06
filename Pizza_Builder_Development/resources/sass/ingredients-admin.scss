@@ -1,6 +1,23 @@
 .ingredients {
     &-single {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 0.5rem;
         padding: 1rem;
-        box-shadow: 0.2rem 0.2rem 0.2rem gray;
+        box-shadow: 0.2rem 0.2rem 0.2rem rgb(31, 31, 31);
+
+        &__element {
+            padding: 0.25rem;
+            background-color: rgba(255, 255, 255, 0.692);
+        }
+    }
+
+    &-single:nth-child(2n) {
+        background-color: rgba(255, 255, 255, 0.918);
+    }
+
+    &-single:nth-child(2n+1) {
+        background-color: rgba(217, 236, 247, 0.699);
     }
 }
