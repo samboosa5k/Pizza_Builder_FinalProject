@@ -24,13 +24,13 @@ Main process - USER:
 # Pizza_Builder_Development (CAUTION):
 - This is the working folder where all the final programming and work is done.
 - These commands should be run within the folder to get it working:
-    1 - npm install
-    2 - composer install
-    3 - php artisan migrate
-    4 - php artisan db:seed --class=IngredientsTableSeeder
+    > npm install
+    > composer install
+    > php artisan migrate
+    > php artisan db:seed --class=IngredientsTableSeeder
 
 - To run the project:
-    1 - npm run watch
-    2 - php artisan serve
+    > npm run watch
+    > php artisan serve
 
 - Working web-address is http://127.0.0.1:8000
