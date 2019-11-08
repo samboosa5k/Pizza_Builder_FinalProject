@@ -25,3 +25,9 @@ Route::group([
 ], function () {
     Route::get('/management', 'ManagementController@index');
 });
+
+Route::get('pizza', 'PizzaController@index');
+Route::get('pizza/{id}/', 'PizzaController@show');
+
+//  EMAIL
+Route::get('email', 'EmailController@index');

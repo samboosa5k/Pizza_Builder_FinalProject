@@ -34,4 +34,4 @@ Route::group([
 });
 
 //  INGREDIENTS
-Route::get('ingredients', 'IngredientController@index');
+Route::get('ingredients', 'PizzaIngredientController@index');

@@ -77,7 +77,6 @@ class Login extends React.Component {
     render() {
         //  Below if-condition checks what to do if status is logged in, OR if
         if ( this.state.status === 'logged_in' || window.localStorage.getItem( '_token' ) !== null ) {
-
             return <Admin token={this.state.token} handleLogout={this.handleLogout} />
         } else {
             return (
