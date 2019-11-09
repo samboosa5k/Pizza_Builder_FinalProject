@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Admin from './Admin';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-class Login extends React.Component {
+class App extends React.Component {
     constructor( props ) {
         super( props );
         this.state = {
@@ -99,8 +100,8 @@ class Login extends React.Component {
     }
 }
 
-export default Login;
+export default App;
 
 if ( document.getElementById( 'app' ) ) {
-    ReactDOM.render( <Login />, document.getElementById( 'app' ) );
+    ReactDOM.render( <App />, document.getElementById( 'app' ) );
 }

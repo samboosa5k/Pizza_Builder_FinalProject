@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Pizza extends Model
 {
     protected $primaryKey = 'user_id';
-    protected $fillable = ['user_id', 'pizza_id'];
+    protected $fillable = ['user_id', 'pizza_id', 'order_id'];
     public $incrementing = false;
 
     public function user()
@@ -17,7 +17,11 @@ class Pizza extends Model
 
     public function pizza_order_ingredients()
     {
-        return $this->belongsToMany('App\PizzaIngredient', 'pizza_order_ingredients', 'ingredient_id', 'pizza_id');
-        //return $this->hasMany('App\PizzaIngredient', 'pizza_order_ingredients', 'ingredient_id', 'pizza_id');
+        return $this->belongsToMany('App\PizzaIngredient', 'pizza_order_ingredients', 'pizza_id', 'ingredient_id');
+    }
+
+    public function order()
+    {
+        return $this->belongsToMany('App\Order');
     }
 }

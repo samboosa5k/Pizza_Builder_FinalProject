@@ -31,6 +31,12 @@ class Ingredients extends React.Component {
                     <div>
                         Amount: <span className="ingredients-single__element">{elem.amount} {elem.units}</span>
                     </div>
+                    <div>
+                        Usage: <span className="ingredients-single__element">{elem.unit_deduction} {elem.units}</span>
+                    </div>
+                    <div>
+                        Cost: <span className="ingredients-single__element">{elem.unit_price}</span>
+                    </div>
                 </div>
             ) )
         }

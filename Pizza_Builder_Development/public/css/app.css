@@ -13,6 +13,10 @@
   list-style-type: none;
 }
 
+.menu-admin__item a {
+  color: white;
+}
+
 .menu-admin__logout {
   margin-right: auto;
   margin-left: auto;
@@ -79,6 +83,32 @@
 }
 
 .ingredients-single:nth-child(2n+1) {
+  background-color: rgba(217, 236, 247, 0.699);
+}
+
+.orders-single {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+  margin: 0.5rem;
+  padding: 1rem;
+  box-shadow: 0.2rem 0.2rem 0.2rem #1f1f1f;
+}
+
+.orders-single__element {
+  padding: 0.25rem;
+  background-color: rgba(255, 255, 255, 0.692);
+}
+
+.orders-single:nth-child(2n) {
+  background-color: rgba(255, 255, 255, 0.918);
+}
+
+.orders-single:nth-child(2n+1) {
   background-color: rgba(217, 236, 247, 0.699);
 }
 

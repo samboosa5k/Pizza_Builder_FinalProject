@@ -14,8 +14,8 @@ class CreatePizzaOrderIngredientsTable extends Migration
     public function up()
     {
         Schema::create('pizza_order_ingredients', function (Blueprint $table) {
-            $table->unsignedInteger('pizza_id');
-            $table->unsignedInteger('ingredient_id');
+            $table->unsignedInteger('pizza_id')->nullable();
+            $table->unsignedInteger('ingredient_id')->nullable();   // NULLABLE FIXED THE CONSTRATINT ERROR
 
             $table->foreign('ingredient_id')->references('id')->on('pizza_ingredients');
             $table->foreign('pizza_id')->references('pizza_id')->on('pizzas');

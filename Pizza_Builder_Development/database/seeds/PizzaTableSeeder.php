@@ -11,11 +11,12 @@ class PizzaTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('pizzas')->truncate();
+        //DB::table('pizzas')->truncate();
 
-        for ($i = 0; $i < 10; $i++) {
+        for ($i = 1; $i <= 20; $i++) {
             DB::table('pizzas')->insert([
                 'user_id' => 1,
+                'order_id' => $i
             ]);
         }
     }

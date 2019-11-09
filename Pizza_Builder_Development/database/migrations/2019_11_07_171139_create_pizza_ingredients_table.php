@@ -21,6 +21,8 @@ class CreatePizzaIngredientsTable extends Migration
             $table->string('allergens')->nullable();
             $table->unsignedBigInteger('amount');
             $table->string('units');
+            $table->unsignedInteger('unit_price')->nullable();
+            $table->unsignedInteger('unit_deduction')->nullable();
             $table->timestamps();
         });
     }
