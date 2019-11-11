@@ -49453,7 +49453,7 @@ if (false) {} else {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, __RouterContext, generatePath, matchPath, useHistory, useLocation, useParams, useRouteMatch, withRouter */
+/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, __RouterContext, generatePath, matchPath, useHistory, useLocation, useParams, useRouteMatch, withRouter, BrowserRouter, HashRouter, Link, NavLink */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -55380,7 +55380,12 @@ function (_React$Component) {
         className: "menu-admin__item"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
         to: "/admin/registered-customers"
-      }, "Regsitered Customers"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
+      }, "Regsitered Customers")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        id: "add-order",
+        className: "menu-admin__item"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
+        to: "/admin/add-order"
+      }, "Add Order"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
         to: "/login",
         className: "menu-admin__logout",
         onClick: this.props.handleLogout
@@ -55425,6 +55430,14 @@ function (_React$Component) {
           }));
         }
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Route"], {
+        path: "/admin/add-order",
+        render: function render(routeProps) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_admin_components_MainContent__WEBPACK_IMPORTED_MODULE_3__["default"], _extends({}, routeProps, {
+            content: "add-order",
+            token: _this3.props.token.token
+          }));
+        }
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Route"], {
         path: "/admin",
         render: function render(routeProps) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_admin_components_MainContent__WEBPACK_IMPORTED_MODULE_3__["default"], _extends({}, routeProps, {
@@ -55447,10 +55460,10 @@ if (document.getElementById('admin')) {
 
 /***/ }),
 
-/***/ "./resources/js/components/App.js":
-/*!****************************************!*\
-  !*** ./resources/js/components/App.js ***!
-  \****************************************/
+/***/ "./resources/js/components/AdminLogin.jsx":
+/*!************************************************!*\
+  !*** ./resources/js/components/AdminLogin.jsx ***!
+  \************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -55458,10 +55471,8 @@ if (document.getElementById('admin')) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _Admin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Admin */ "./resources/js/components/Admin.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _Admin__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Admin */ "./resources/js/components/Admin.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -55486,18 +55497,17 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-
-var App =
+var AdminLogin =
 /*#__PURE__*/
 function (_React$Component) {
-  _inherits(App, _React$Component);
+  _inherits(AdminLogin, _React$Component);
 
-  function App(props) {
+  function AdminLogin(props) {
     var _this;
 
-    _classCallCheck(this, App);
+    _classCallCheck(this, AdminLogin);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(App).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(AdminLogin).call(this, props));
     _this.state = {
       email: '',
       password: '',
@@ -55511,7 +55521,7 @@ function (_React$Component) {
     return _this;
   }
 
-  _createClass(App, [{
+  _createClass(AdminLogin, [{
     key: "handleLogin",
     value: function handleLogin(event) {
       var _this2 = this;
@@ -55586,7 +55596,7 @@ function (_React$Component) {
     value: function render() {
       //  Below if-condition checks what to do if status is logged in, OR if
       if (this.state.status === 'logged_in' || window.localStorage.getItem('_token') !== null) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Admin__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Admin__WEBPACK_IMPORTED_MODULE_1__["default"], {
           token: this.state.token,
           handleLogout: this.handleLogout
         });
@@ -55621,6 +55631,117 @@ function (_React$Component) {
           className: "btn btn-default admin-login__button"
         }, "Submit"))));
       }
+    }
+  }]);
+
+  return AdminLogin;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (AdminLogin);
+
+/***/ }),
+
+/***/ "./resources/js/components/App.js":
+/*!****************************************!*\
+  !*** ./resources/js/components/App.js ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _AdminLogin_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AdminLogin.jsx */ "./resources/js/components/AdminLogin.jsx");
+/* harmony import */ var _customer_components_Checkout_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./customer_components/Checkout.jsx */ "./resources/js/components/customer_components/Checkout.jsx");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+
+
+var App =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(App, _React$Component);
+
+  function App(props) {
+    var _this;
+
+    _classCallCheck(this, App);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(App).call(this, props));
+    _this.state = {
+      ingredientProps: {
+        "pizza_1": {
+          "pizza_id": 2,
+          "pizza_ingredients": [3, 4, 4, 5]
+        }
+      }
+    };
+    return _this;
+  }
+
+  _createClass(App, [{
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["BrowserRouter"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "navBar-admin"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        id: "builder",
+        className: "menu-admin__item"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
+        to: "/"
+      }, "Login")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        id: "builder",
+        className: "menu-admin__item"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
+        to: "/builder"
+      }, "Builder")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        id: "checkout",
+        className: "menu-admin__item"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
+        to: "/checkout"
+      }, "Checkout")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Route"], {
+        exact: true,
+        path: "/",
+        render: function render(routeProps) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_AdminLogin_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], routeProps);
+        }
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Route"], {
+        exact: true,
+        path: "/checkout",
+        render: function render(routeProps) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_customer_components_Checkout_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], _extends({}, routeProps, {
+            ingredientProps: _this2.state.ingredientProps
+          }));
+        }
+      })));
     }
   }]);
 
@@ -55744,6 +55865,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Ingredients_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Ingredients.jsx */ "./resources/js/components/admin_components/Ingredients.jsx");
 /* harmony import */ var _Orders_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Orders.jsx */ "./resources/js/components/admin_components/Orders.jsx");
+/* harmony import */ var _OrderCheckout_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./OrderCheckout.jsx */ "./resources/js/components/admin_components/OrderCheckout.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -55761,6 +55883,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -55794,6 +55917,10 @@ function (_React$Component) {
             return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Orders_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
               token: _this.props.token
             });
+            break;
+
+          case 'add-order':
+            return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_OrderCheckout_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], null);
             break;
 
           default:
@@ -55896,6 +56023,181 @@ function (_React$Component) {
 
 /***/ }),
 
+/***/ "./resources/js/components/admin_components/OrderCheckout.jsx":
+/*!********************************************************************!*\
+  !*** ./resources/js/components/admin_components/OrderCheckout.jsx ***!
+  \********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+var OrderCheckout =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(OrderCheckout, _React$Component);
+
+  function OrderCheckout(props) {
+    var _this;
+
+    _classCallCheck(this, OrderCheckout);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(OrderCheckout).call(this, props));
+    _this.state = {
+      first_name: '',
+      last_name: '',
+      phone_number: '',
+      street_and_housenumber: '',
+      postcode: '',
+      city: '',
+      price: 10.25,
+      csrf_token: ''
+    };
+    _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(OrderCheckout, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.setState({
+        csrf_token: document.getElementsByName('_token')[0].value
+      });
+    }
+  }, {
+    key: "handleSubmit",
+    value: function handleSubmit(event) {
+      event.preventDefault();
+      fetch('http://127.0.0.1:8000/order/finalize', {
+        method: 'POST',
+        headers: {
+          'X-Requested-With': 'XMLHttpRequest',
+          'Content-Type': 'application/json',
+          'X-CSRF-TOKEN': this.state.csrf_token
+        },
+        body: JSON.stringify({
+          'first_name': this.state.first_name,
+          'last_name': this.state.last_name,
+          'phone_number': this.state.phone_number,
+          'street_and_housenumber': this.state.street_and_housenumber,
+          'postcode': this.state.postcode,
+          'city': this.state.city,
+          'price': this.state.price
+        })
+      }).then(function (response) {
+        return response.json();
+      }).then(function (data) {
+        console.log(data);
+      });
+    }
+  }, {
+    key: "handleChange",
+    value: function handleChange(event) {
+      var nam = event.target.name;
+      var val = event.target.value;
+      this.setState(_defineProperty({}, nam, val));
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "admin-login__wrapper"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        className: "form-group admin-login__form",
+        onSubmit: this.handleSubmit
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        className: "admin-login__label",
+        htmlFor: "first_name"
+      }, "First Name:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        className: "admin-login__input",
+        id: "first_name",
+        name: "first_name",
+        onChange: this.handleChange
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        className: "admin-login__label",
+        htmlFor: "last_name"
+      }, "Last Name:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        className: "admin-login__input",
+        id: "last_name",
+        name: "last_name",
+        onChange: this.handleChange
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        className: "admin-login__label",
+        htmlFor: "phone_number"
+      }, "Phone:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        className: "admin-login__input",
+        id: "phone_number",
+        name: "phone_number",
+        onChange: this.handleChange
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        className: "admin-login__label",
+        htmlFor: "street_and_housenumber"
+      }, "Street & House Nr.:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        className: "admin-login__input",
+        id: "street_and_housenumber",
+        name: "street_and_housenumber",
+        onChange: this.handleChange
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        className: "admin-login__label",
+        htmlFor: "postcode"
+      }, "Postcode:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        className: "admin-login__input",
+        id: "postcode",
+        name: "postcode",
+        onChange: this.handleChange
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        className: "admin-login__label",
+        htmlFor: "city"
+      }, "City:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        className: "admin-login__input",
+        id: "city",
+        name: "city",
+        onChange: this.handleChange
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "submit",
+        className: "btn btn-default admin-login__button"
+      }, "Submit"))));
+    }
+  }]);
+
+  return OrderCheckout;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (OrderCheckout);
+
+/***/ }),
+
 /***/ "./resources/js/components/admin_components/Orders.jsx":
 /*!*************************************************************!*\
   !*** ./resources/js/components/admin_components/Orders.jsx ***!
@@ -55992,6 +56294,204 @@ function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["default"] = (Orders);
+
+/***/ }),
+
+/***/ "./resources/js/components/customer_components/Checkout.jsx":
+/*!******************************************************************!*\
+  !*** ./resources/js/components/customer_components/Checkout.jsx ***!
+  \******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+var Checkout =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(Checkout, _React$Component);
+
+  function Checkout(props) {
+    var _this;
+
+    _classCallCheck(this, Checkout);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Checkout).call(this, props));
+    _this.state = {
+      first_name: '',
+      last_name: '',
+      phone_number: '',
+      street_and_housenumber: '',
+      postcode: '',
+      city: '',
+      price: 10.25,
+      csrf_token: '',
+      checkout_object: ''
+    };
+    _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(Checkout, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.setState({
+        csrf_token: document.getElementsByName('_token')[0].value
+      });
+    }
+  }, {
+    key: "handleSubmit",
+    value: function handleSubmit(event) {
+      event.preventDefault();
+      this.setState({
+        checkout_object: {
+          "first_name": this.state.first_name,
+          "last_name": this.state.last_name,
+          "phone_number": this.state.phone_number,
+          "street_and_number": this.state.street_and_housenumber,
+          "postcode": this.state.postcode,
+          "city": this.state.city,
+          "price": "make algorith, jasper",
+          "order": this.props.ingredientProps
+        }
+      });
+      /* fetch( 'http://127.0.0.1:8000/order/finalize', {
+          method: 'POST',
+          headers: {
+              'X-Requested-With': 'XMLHttpRequest',
+              'Content-Type': 'application/json',
+              'X-CSRF-TOKEN': this.state.csrf_token
+          },
+          body: JSON.stringify( {
+              'first_name': this.state.first_name,
+              'last_name': this.state.last_name,
+              'phone_number': this.state.phone_number,
+              'street_and_housenumber': this.state.street_and_housenumber,
+              'postcode': this.state.postcode,
+              'city': this.state.city,
+              'price': this.state.price,
+          } )
+      } )
+          .then( response => response.json() )
+          .then( data => {
+              console.log( data );
+          } ) */
+    }
+  }, {
+    key: "handleChange",
+    value: function handleChange(event) {
+      var nam = event.target.name;
+      var val = event.target.value;
+      this.setState(_defineProperty({}, nam, val));
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "admin-login__wrapper"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        style: {
+          padding: 1 + "rem",
+          backgroundColor: "white"
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "What comes from the pizza builder:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), JSON.stringify(this.props.ingredientProps)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        className: "form-group admin-login__form",
+        onSubmit: this.handleSubmit
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        className: "admin-login__label",
+        htmlFor: "first_name"
+      }, "First Name:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        className: "admin-login__input",
+        id: "first_name",
+        name: "first_name",
+        onChange: this.handleChange
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        className: "admin-login__label",
+        htmlFor: "last_name"
+      }, "Last Name:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        className: "admin-login__input",
+        id: "last_name",
+        name: "last_name",
+        onChange: this.handleChange
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        className: "admin-login__label",
+        htmlFor: "phone_number"
+      }, "Phone:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        className: "admin-login__input",
+        id: "phone_number",
+        name: "phone_number",
+        onChange: this.handleChange
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        className: "admin-login__label",
+        htmlFor: "street_and_housenumber"
+      }, "Street & House Nr.:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        className: "admin-login__input",
+        id: "street_and_housenumber",
+        name: "street_and_housenumber",
+        onChange: this.handleChange
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        className: "admin-login__label",
+        htmlFor: "postcode"
+      }, "Postcode:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        className: "admin-login__input",
+        id: "postcode",
+        name: "postcode",
+        onChange: this.handleChange
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        className: "admin-login__label",
+        htmlFor: "city"
+      }, "City:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        className: "admin-login__input",
+        id: "city",
+        name: "city",
+        onChange: this.handleChange
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "submit",
+        className: "btn btn-default admin-login__button"
+      }, "Submit")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        style: {
+          padding: 1 + "rem",
+          backgroundColor: "white"
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "What is sent to backend:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), JSON.stringify(this.state.checkout_object))));
+    }
+  }]);
+
+  return Checkout;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (Checkout);
 
 /***/ }),
 

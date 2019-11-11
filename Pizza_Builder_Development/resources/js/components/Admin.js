@@ -69,6 +69,10 @@ class Admin extends React.Component {
                             <li id="registered-custoemrs" className="menu-admin__item">
                                 <Link to="/admin/registered-customers">Regsitered Customers</Link>
                             </li>
+
+                            <li id="add-order" className="menu-admin__item">
+                                <Link to="/admin/add-order">Add Order</Link>
+                            </li>
                         </ul>
 
                         <Link to="/login" className="menu-admin__logout" onClick={this.props.handleLogout}>Logout babyyyy!</Link>
@@ -94,6 +98,10 @@ class Admin extends React.Component {
 
                         <Route path='/admin/registered-customers' render={( routeProps ) => (
                             <MainContent {...routeProps} content='registered-customers' token={this.props.token.token} />
+                        )} />
+
+                        <Route path='/admin/add-order' render={( routeProps ) => (
+                            <MainContent {...routeProps} content='add-order' token={this.props.token.token} />
                         )} />
 
                         <Route path='/admin' render={( routeProps ) => (

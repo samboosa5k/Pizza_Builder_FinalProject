@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('login.index');
 });
 
 Route::get('/login', function () {
@@ -33,6 +33,7 @@ Route::get('pizza/{id}/', 'PizzaController@show');
 
 //  Order Controller
 Route::get('order/{id}/', 'OrderController@show');      //  Show single order, not protected for now
+Route::post('order/finalize', 'OrderController@store');
 
 //  EMAIL
 Route::get('email', 'EmailController@index');

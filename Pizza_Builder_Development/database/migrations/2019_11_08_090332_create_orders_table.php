@@ -21,7 +21,8 @@ class CreateOrdersTable extends Migration
             $table->string('street_and_housenumber');
             $table->string('postcode');
             $table->string('city');
-            $table->string('status');
+            $table->float('order_price', 8, 2)->nullable();
+            $table->string('status')->default('in_progress');
             $table->dateTime('created_at')->default(now());
         });
     }

@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
-    public $timestamps = true;
+    public $timestamps = false;
+
     protected $fillable = array(
         'first_name',
         'last_name',
