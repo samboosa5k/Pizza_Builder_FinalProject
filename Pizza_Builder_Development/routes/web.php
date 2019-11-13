@@ -25,6 +25,7 @@ Route::group([
 ], function () {
     Route::get('/management', 'ManagementController@index');
     Route::get('order/status/{status}/', 'OrderController@index');  //  Show orders based on status
+
 });
 
 //  Pizza Controller
@@ -34,6 +35,7 @@ Route::get('pizza/{id}/', 'PizzaController@show');
 //  Order Controller
 Route::get('order/{id}/', 'OrderController@show');      //  Show single order, not protected for now
 Route::post('order/finalize', 'OrderController@store');
+Route::get('ordersss', 'OrderController@test'); // DELETYE IF REACT DETAIL BOX WORKS
 
 //  EMAIL
 Route::get('email', 'EmailController@index');

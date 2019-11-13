@@ -9,10 +9,10 @@ class NavBar extends React.Component {
         return (
             <div className="navBar-admin">
                 <ul>
-                    <a href="#" onClick={this.props.menuClick}><li id="open-orders" className="menu-admin__item">Open Orders</li></a>
-                    <a href="#" onClick={this.props.menuClick}><li id="past-orders" className="menu-admin__item">Past Orders</li></a>
-                    <a href="#" onClick={this.props.menuClick}><li id="available-ingredients" className="menu-admin__item">Available Ingredients</li></a>
-                    <a href="#" onClick={this.props.menuClick}><li id="registered-customers" className="menu-admin__item">Registered Customers</li></a>
+                    <a href="#" onClick={this.props.menuClick}><li id="open-orders" className="menu-admin__item nostyle-links">Open Orders</li></a>
+                    <a href="#" onClick={this.props.menuClick}><li id="past-orders" className="menu-admin__item nostyle-links">Past Orders</li></a>
+                    <a href="#" onClick={this.props.menuClick}><li id="available-ingredients" className="menu-admin__item nostyle-links">Available Ingredients</li></a>
+                    <a href="#" onClick={this.props.menuClick}><li id="registered-customers" className="menu-admin__item nostyle-links">Registered Customers</li></a>
                 </ul>
 
                 <a href="#" onClick={this.props.handleLogout} className="menu-admin__logout"><strong>Logout babyyyy!</strong></a>

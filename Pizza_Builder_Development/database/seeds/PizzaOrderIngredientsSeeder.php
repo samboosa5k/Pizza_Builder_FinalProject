@@ -15,7 +15,7 @@ class PizzaOrderIngredientsSeeder extends Seeder
 
         for ($i = 0; $i < 50; $i++) {
             DB::table('pizza_order_ingredients')->insert([
-                'pizza_id' => random_int(1, 10),
+                'pizza_id' => random_int(1, 20),
                 'ingredient_id' => random_int(1, 25)
             ]);
         }

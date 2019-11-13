@@ -55601,35 +55601,35 @@ function (_React$Component) {
           handleLogout: this.handleLogout
         });
       } else {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "admin-login__wrapper"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+        }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
           className: "admin-login__header"
-        }, "Admin Login"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        }, "Admin Login"), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
           className: "form-group admin-login__form",
           onSubmit: this.handleLogin
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
           className: "admin-login__label",
           htmlFor: "email"
-        }, "Email address:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        }, "Email address:"), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           type: "email",
           className: "admin-login__input",
           id: "email",
           name: "email",
           onChange: this.handleChange
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        }), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
           className: "admin-login__label",
           htmlFor: "pwd"
-        }, "Password:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        }, "Password:"), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           type: "password",
           className: "admin-login__input",
           id: "password",
           name: "password",
           onChange: this.handleChange
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        }), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           type: "submit",
           className: "btn btn-default admin-login__button"
-        }, "Submit"))));
+        }, "Submit"), " "), " "), " ");
       }
     }
   }]);
@@ -55989,25 +55989,25 @@ function (_React$Component) {
         onClick: this.props.menuClick
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         id: "open-orders",
-        className: "menu-admin__item"
+        className: "menu-admin__item nostyle-links"
       }, "Open Orders")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "#",
         onClick: this.props.menuClick
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         id: "past-orders",
-        className: "menu-admin__item"
+        className: "menu-admin__item nostyle-links"
       }, "Past Orders")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "#",
         onClick: this.props.menuClick
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         id: "available-ingredients",
-        className: "menu-admin__item"
+        className: "menu-admin__item nostyle-links"
       }, "Available Ingredients")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "#",
         onClick: this.props.menuClick
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         id: "registered-customers",
-        className: "menu-admin__item"
+        className: "menu-admin__item nostyle-links"
       }, "Registered Customers"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "#",
         onClick: this.props.handleLogout,
@@ -56209,7 +56209,16 @@ function (_React$Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _PopDetails_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PopDetails.jsx */ "./resources/js/components/admin_components/PopDetails.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -56219,13 +56228,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -56241,8 +56251,13 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Orders).call(this, props));
     _this.state = {
-      apiResponse: ''
+      apiResponse: '',
+      orderItems: '',
+      popContent: '',
+      pop_id: '',
+      pop_open: false
     };
+    _this.popDetails = _this.popDetails.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -56252,6 +56267,7 @@ function (_React$Component) {
       var _this2 = this;
 
       fetch('http://127.0.0.1:8000/order/status/in_progress', {
+        // FETCH -> all 'in_progress' orders
         method: 'GET',
         headers: {
           'Authorization': 'Bearer ' + this.props.token,
@@ -56262,27 +56278,68 @@ function (_React$Component) {
         return response.json();
       }).then(function (data) {
         _this2.setState({
-          apiResponse: data
+          apiResponse: data.orders,
+          orderItems: data.items
         });
+      });
+    }
+  }, {
+    key: "popDetails",
+    value: function popDetails(event, id) {
+      // For setting pop-up related state and ID
+      event.preventDefault();
+      var details = [];
+
+      if (this.state.orderItems !== '') {
+        this.state.orderItems.forEach(function (elem, index) {
+          if (elem.order_id === id) details = [].concat(_toConsumableArray(details), [elem]); // Putting only relevant ingredients into array
+        });
+      }
+
+      this.setState(function (prevState) {
+        return {
+          pop_open: !prevState.pop_open,
+          pop_id: id,
+          popContent: details
+        };
       });
     }
   }, {
     key: "render",
     value: function render() {
+      var _this3 = this;
+
       var apiResponse = 'Loading...';
+      var popContent = 'Loading...';
+
+      if (this.state.pop_open === true) {
+        popContent = this.state.popContent;
+      }
 
       if (this.state.apiResponse !== '') {
         apiResponse = this.state.apiResponse.map(function (elem, index) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             key: index,
             className: "orders-single"
-          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Order ID: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "orders-single__information"
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Order ID: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
             className: "orders-single__element"
-          }, elem.id)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Name: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+          }, elem.id)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Name: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
             className: "orders-single__element"
-          }, elem.first_name, " ", elem.last_name)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Ordered At: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+          }, elem.first_name, " ", elem.last_name)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Ordered At: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
             className: "orders-single__element"
-          }, elem.created_at)));
+          }, elem.created_at))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "orders-single__bottom-menu"
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+            href: "#",
+            onClick: function onClick(event) {
+              _this3.popDetails(event, elem.id);
+            },
+            className: "orders-single__details-button nostyle-links"
+          }, "Order Details")), _this3.state.pop_open === true && elem.id === _this3.state.pop_id && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PopDetails_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
+            popContent: popContent
+          }));
         });
       }
 
@@ -56294,6 +56351,41 @@ function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["default"] = (Orders);
+/*
+    Pizza where order_id === id
+    pizza_order_ingredients where pizza_id = pizzas.pizza_id
+*/
+
+/***/ }),
+
+/***/ "./resources/js/components/admin_components/PopDetails.jsx":
+/*!*****************************************************************!*\
+  !*** ./resources/js/components/admin_components/PopDetails.jsx ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var PopDetails = function PopDetails(props) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "orders-single__popDetails"
+  }, props.popContent.map(function (elem, index) {
+    var header = '';
+
+    if (index === 0 || props.popContent[index - 1].pizza_id !== undefined && props.popContent[index].pizza_id !== props.popContent[index - 1].pizza_id) {
+      header = "Pizza ".concat(index);
+    }
+
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, header), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, props.popContent[index].name));
+  })));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (PopDetails);
 
 /***/ }),
 
