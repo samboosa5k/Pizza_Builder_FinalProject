@@ -9,6 +9,7 @@ class MainContent extends React.Component {
     }
 
     render() {
+        console.log( 'Step 3', 'MainContent.jsx reached, token is = ' + this.props.token ); // Weird login bug troubleshooting
         return (
             <div className="mainContent-admin">
                 {

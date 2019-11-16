@@ -1,8 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import AdminLogin from './AdminLogin.jsx';
+import { BrowserRouter as Router, Route, Link, Redirect, Switch } from 'react-router-dom';
+
+import Home from './Home.jsx';
+import NavBar from './customer_components/NavBar.jsx';
 import Checkout from './customer_components/Checkout.jsx';
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import AdminLogin from './AdminLogin.jsx';
+
+import ErrorBoundary from './ErrorBoundary.jsx';
 
 class App extends React.Component {
     constructor( props ) {
@@ -16,42 +21,30 @@ class App extends React.Component {
             }
         }
     }
+
     render() {
+        console.log( 'Step 1', 'App.js reached' );  // Weird login bug troubleshooting
+
         return (
             <>
                 <Router>
-                    <div className="navBar-admin">
-                        <ul>
+                    <NavBar />
 
-                            <li id="builder" className="menu-admin__item">
-                                <Link to="/">Login</Link>
-                            </li>
+                    <Switch>
+                        <Route exact path='/' render={( routeProps ) => (
+                            <Home {...routeProps} />
+                        )} />
 
-                            <li id="builder" className="menu-admin__item">
-                                <Link to="/builder">Builder</Link>
-                            </li>
+                        <Route exact path='/checkout' render={( routeProps ) => (
+                            <Checkout {...routeProps} ingredientProps={this.state.ingredientProps} />
+                        )} />
 
-                            <li id="checkout" className="menu-admin__item">
-                                <Link to="/checkout">Checkout</Link>
-                            </li>
+                        {/* ADMIN ROUTES */}
+                        <Route path='/login' render={( routeProps ) => (
+                            <AdminLogin {...routeProps} />
+                        )} />
 
-                            {/* <li id="checkout-finalize" className="menu-admin__item">
-                                <Link to="/checkout/finalize">Finalize</Link>
-                            </li> */}
-                        </ul>
-
-                    </div>
-
-
-                    <Route exact path='/' render={( routeProps ) => (
-                        <AdminLogin {...routeProps} />
-                    )} />
-
-                    <Route exact path='/checkout' render={( routeProps ) => (
-                        <Checkout {...routeProps} ingredientProps={this.state.ingredientProps} />
-                    )} />
-
-
+                    </Switch>
 
                 </Router>
             </>

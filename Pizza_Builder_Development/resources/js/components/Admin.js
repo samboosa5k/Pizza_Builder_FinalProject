@@ -80,9 +80,9 @@ class Admin extends React.Component {
                     </div>
 
                     <Switch>
-                        <Route path='/admin/login' render={( routeProps ) => (
+                        {/* <Route path='/admin/login' render={( routeProps ) => (
                             <MainContent {...routeProps} content={this.state.content} token={this.props.token.token} />
-                        )} />
+                        )} /> */}
 
                         <Route path='/admin/open-orders' render={( routeProps ) => (
                             <MainContent {...routeProps} content='open-orders' token={this.props.token.token} />
@@ -105,7 +105,7 @@ class Admin extends React.Component {
                         )} />
 
                         <Route path='/admin' render={( routeProps ) => (
-                            <MainContent {...routeProps} content='open-orders' token={this.props.token.token} />
+                            <h1>Welcome to the admin area home!</h1>
                         )} />
 
                     </Switch>

@@ -55390,14 +55390,6 @@ function (_React$Component) {
         className: "menu-admin__logout",
         onClick: this.props.handleLogout
       }, "Logout babyyyy!")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Route"], {
-        path: "/admin/login",
-        render: function render(routeProps) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_admin_components_MainContent__WEBPACK_IMPORTED_MODULE_3__["default"], _extends({}, routeProps, {
-            content: _this3.state.content,
-            token: _this3.props.token.token
-          }));
-        }
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Route"], {
         path: "/admin/open-orders",
         render: function render(routeProps) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_admin_components_MainContent__WEBPACK_IMPORTED_MODULE_3__["default"], _extends({}, routeProps, {
@@ -55440,10 +55432,7 @@ function (_React$Component) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Route"], {
         path: "/admin",
         render: function render(routeProps) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_admin_components_MainContent__WEBPACK_IMPORTED_MODULE_3__["default"], _extends({}, routeProps, {
-            content: "open-orders",
-            token: _this3.props.token.token
-          }));
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Welcome to the admin area home!");
         }
       }))));
     }
@@ -55471,8 +55460,9 @@ if (document.getElementById('admin')) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Admin__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Admin */ "./resources/js/components/Admin.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _Admin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Admin */ "./resources/js/components/Admin.js");
+/* harmony import */ var _ErrorBoundary_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ErrorBoundary.jsx */ "./resources/js/components/ErrorBoundary.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -55492,6 +55482,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -55518,10 +55509,32 @@ function (_React$Component) {
     _this.handleLogin = _this.handleLogin.bind(_assertThisInitialized(_this));
     _this.handleLogout = _this.handleLogout.bind(_assertThisInitialized(_this));
     _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
+    _this.getToken = _this.getToken.bind(_assertThisInitialized(_this));
     return _this;
   }
+  /*
+      COMPONENTDIDMOUNT explanation
+      - When logging in, a token is stored in state, however the next time you navigate to
+      this page, the login fetch is not done again and the state-token used for authentication down the line
+      won't actually exist
+      - This lifecycle will check for the token and put it in state if it exists
+  */
+
 
   _createClass(AdminLogin, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.setState({
+        token: {
+          token: this.getToken()
+        }
+      });
+    }
+    /*
+        LOGIN & AUTH RELATED
+    */
+
+  }, {
     key: "handleLogin",
     value: function handleLogin(event) {
       var _this2 = this;
@@ -55531,7 +55544,7 @@ function (_React$Component) {
       if (this.state.status !== '') {
         this.setState({
           status: 'logged_out'
-        }); //  If there is no status, stay logged out
+        }); //  If login details are invalid, stay logged out
       } else {
         fetch('http://127.0.0.1:8000/api/auth/login', {
           method: 'POST',
@@ -55561,8 +55574,7 @@ function (_React$Component) {
               status: 'logged_in'
             });
 
-            _this2.setToken(data.token); //console.log( data.token );  //  This logs the current token after a successful login :D
-
+            _this2.setToken(data.token);
           }
         });
       }
@@ -55579,11 +55591,24 @@ function (_React$Component) {
         error: ''
       });
     }
+    /*
+        TOKEN RELATED
+    */
+
   }, {
     key: "setToken",
     value: function setToken(token) {
       window.localStorage.setItem('_token', token);
     }
+  }, {
+    key: "getToken",
+    value: function getToken() {
+      return window.localStorage.getItem('_token');
+    }
+    /*
+        FORM RELATED
+    */
+
   }, {
     key: "handleChange",
     value: function handleChange(event) {
@@ -55594,42 +55619,44 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      console.log('Step 2', 'AdminLogin.jsx reached, token is = ' + this.getToken()); // Weird login bug troubleshooting
       //  Below if-condition checks what to do if status is logged in, OR if
+
       if (this.state.status === 'logged_in' || window.localStorage.getItem('_token') !== null) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Admin__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ErrorBoundary_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Admin__WEBPACK_IMPORTED_MODULE_2__["default"], {
           token: this.state.token,
           handleLogout: this.handleLogout
-        });
+        }));
       } else {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "admin-login__wrapper"
-        }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
           className: "admin-login__header"
-        }, "Admin Login"), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        }, "Admin Login"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
           className: "form-group admin-login__form",
           onSubmit: this.handleLogin
-        }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
           className: "admin-login__label",
           htmlFor: "email"
-        }, "Email address:"), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        }, "Email address:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           type: "email",
           className: "admin-login__input",
           id: "email",
           name: "email",
           onChange: this.handleChange
-        }), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
           className: "admin-login__label",
           htmlFor: "pwd"
-        }, "Password:"), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        }, "Password:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           type: "password",
           className: "admin-login__input",
           id: "password",
           name: "password",
           onChange: this.handleChange
-        }), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           type: "submit",
           className: "btn btn-default admin-login__button"
-        }, "Submit"), " "), " "), " ");
+        }, "Submit"))));
       }
     }
   }]);
@@ -55654,9 +55681,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _AdminLogin_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AdminLogin.jsx */ "./resources/js/components/AdminLogin.jsx");
-/* harmony import */ var _customer_components_Checkout_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./customer_components/Checkout.jsx */ "./resources/js/components/customer_components/Checkout.jsx");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _Home_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Home.jsx */ "./resources/js/components/Home.jsx");
+/* harmony import */ var _customer_components_NavBar_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./customer_components/NavBar.jsx */ "./resources/js/components/customer_components/NavBar.jsx");
+/* harmony import */ var _customer_components_Checkout_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./customer_components/Checkout.jsx */ "./resources/js/components/customer_components/Checkout.jsx");
+/* harmony import */ var _AdminLogin_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./AdminLogin.jsx */ "./resources/js/components/AdminLogin.jsx");
+/* harmony import */ var _ErrorBoundary_jsx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./ErrorBoundary.jsx */ "./resources/js/components/ErrorBoundary.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
@@ -55676,6 +55706,9 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
 
 
 
@@ -55710,38 +55743,28 @@ function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["BrowserRouter"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "navBar-admin"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        id: "builder",
-        className: "menu-admin__item"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
-        to: "/"
-      }, "Login")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        id: "builder",
-        className: "menu-admin__item"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
-        to: "/builder"
-      }, "Builder")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        id: "checkout",
-        className: "menu-admin__item"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
-        to: "/checkout"
-      }, "Checkout")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Route"], {
+      console.log('Step 1', 'App.js reached'); // Weird login bug troubleshooting
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["BrowserRouter"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_customer_components_NavBar_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/",
         render: function render(routeProps) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_AdminLogin_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], routeProps);
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Home_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], routeProps);
         }
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Route"], {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/checkout",
         render: function render(routeProps) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_customer_components_Checkout_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], _extends({}, routeProps, {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_customer_components_Checkout_jsx__WEBPACK_IMPORTED_MODULE_5__["default"], _extends({}, routeProps, {
             ingredientProps: _this2.state.ingredientProps
           }));
         }
-      })));
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+        path: "/login",
+        render: function render(routeProps) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_AdminLogin_jsx__WEBPACK_IMPORTED_MODULE_6__["default"], routeProps);
+        }
+      }))));
     }
   }]);
 
@@ -55753,6 +55776,116 @@ function (_React$Component) {
 if (document.getElementById('app')) {
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(App, null), document.getElementById('app'));
 }
+
+/***/ }),
+
+/***/ "./resources/js/components/ErrorBoundary.jsx":
+/*!***************************************************!*\
+  !*** ./resources/js/components/ErrorBoundary.jsx ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+/* 
+    Source: https://reactjs.org/docs/error-boundaries.html
+*/
+
+
+var ErrorBoundary =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(ErrorBoundary, _React$Component);
+
+  function ErrorBoundary(props) {
+    var _this;
+
+    _classCallCheck(this, ErrorBoundary);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(ErrorBoundary).call(this, props));
+    _this.state = {
+      hasError: false
+    };
+    return _this;
+  }
+
+  _createClass(ErrorBoundary, [{
+    key: "componentDidCatch",
+    value: function componentDidCatch(error, errorInfo) {
+      // You can also log the error to an error reporting service
+      console.log("there is an error");
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      if (this.state.hasError) {
+        // You can render any custom fallback UI
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Something went wrong");
+      }
+
+      return this.props.children;
+    }
+  }], [{
+    key: "getDerivedStateFromError",
+    value: function getDerivedStateFromError(error) {
+      // Update state so the next render will show the fallback UI.
+      return {
+        hasError: true
+      };
+    }
+  }]);
+
+  return ErrorBoundary;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (ErrorBoundary);
+
+/***/ }),
+
+/***/ "./resources/js/components/Home.jsx":
+/*!******************************************!*\
+  !*** ./resources/js/components/Home.jsx ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var Home = function Home(props) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    style: {
+      width: "100%",
+      textAlign: "center"
+    }
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "This is the home page"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Soon this will show the view created by Jayne & Adi")));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Home);
 
 /***/ }),
 
@@ -55904,6 +56037,8 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       var _this = this;
+
+      console.log('Step 3', 'MainContent.jsx reached, token is = ' + this.props.token); // Weird login bug troubleshooting
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "mainContent-admin"
@@ -56584,6 +56719,46 @@ function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["default"] = (Checkout);
+
+/***/ }),
+
+/***/ "./resources/js/components/customer_components/NavBar.jsx":
+/*!****************************************************************!*\
+  !*** ./resources/js/components/customer_components/NavBar.jsx ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+
+
+
+var NavBar = function NavBar(props) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "navBar-admin"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    id: "builder",
+    className: "menu-admin__item"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/login"
+  }, "Login")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    id: "builder",
+    className: "menu-admin__item"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/builder"
+  }, "Builder")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    id: "checkout",
+    className: "menu-admin__item"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/checkout"
+  }, "Checkout")))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (NavBar);
 
 /***/ }),
 
