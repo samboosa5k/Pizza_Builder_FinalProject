@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import NavBar from './admin_components/NavBar';
+/* import NavBar from './admin_components/NavBar'; */
 import MainContent from './admin_components/MainContent';
 import { BrowserRouter as Router, Route, Link, Redirect, Switch } from 'react-router-dom';
 
@@ -72,6 +72,10 @@ class Admin extends React.Component {
 
                             <li id="add-order" className="menu-admin__item">
                                 <Link to="/admin/add-order">Add Order</Link>
+                            </li>
+
+                            <li id="customer-portal" className="menu-admin__item">
+                                <a href="/">&rarr; Go to customer portal!</a>
                             </li>
                         </ul>
 

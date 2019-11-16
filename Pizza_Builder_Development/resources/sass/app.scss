@@ -27,7 +27,7 @@ body {
 .navBar-admin {
     display: flex;
     flex-direction: column;
-    width: 240px;
+    min-width: 240px;
     height: 100vh;
     background-color: rgb(23, 24, 26);
 }

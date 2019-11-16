@@ -37,28 +37,6 @@ class Checkout extends React.Component {
                 "order": this.props.ingredientProps
             }
         } )
-
-        /* fetch( 'http://127.0.0.1:8000/order/finalize', {
-            method: 'POST',
-            headers: {
-                'X-Requested-With': 'XMLHttpRequest',
-                'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': this.state.csrf_token
-            },
-            body: JSON.stringify( {
-                'first_name': this.state.first_name,
-                'last_name': this.state.last_name,
-                'phone_number': this.state.phone_number,
-                'street_and_housenumber': this.state.street_and_housenumber,
-                'postcode': this.state.postcode,
-                'city': this.state.city,
-                'price': this.state.price,
-            } )
-        } )
-            .then( response => response.json() )
-            .then( data => {
-                console.log( data );
-            } ) */
     }
 
     handleChange( event ) {
@@ -71,6 +49,7 @@ class Checkout extends React.Component {
 
         return (
             <>
+
                 <div className="admin-login__wrapper">
 
                     <div style={{ padding: 1 + "rem", backgroundColor: "white" }}>

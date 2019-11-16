@@ -55264,9 +55264,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _admin_components_NavBar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./admin_components/NavBar */ "./resources/js/components/admin_components/NavBar.jsx");
-/* harmony import */ var _admin_components_MainContent__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./admin_components/MainContent */ "./resources/js/components/admin_components/MainContent.jsx");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _admin_components_MainContent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./admin_components/MainContent */ "./resources/js/components/admin_components/MainContent.jsx");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
@@ -55289,6 +55288,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+/* import NavBar from './admin_components/NavBar'; */
 
 
 
@@ -55355,7 +55355,7 @@ function (_React$Component) {
     value: function render() {
       var _this3 = this;
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["BrowserRouter"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Redirect"], {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["BrowserRouter"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Redirect"], {
         from: "/login/",
         to: "/admin"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -55363,73 +55363,78 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         id: "open-orders",
         className: "menu-admin__item"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
         to: "/admin/open-orders"
       }, "Open Orders")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         id: "past-orders",
         className: "menu-admin__item"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
         to: "/admin/past-orders"
       }, "Past Orders")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         id: "available-ingredients",
         className: "menu-admin__item"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
         to: "/admin/available-ingredients"
       }, "Available Ingredients")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         id: "registered-custoemrs",
         className: "menu-admin__item"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
         to: "/admin/registered-customers"
       }, "Regsitered Customers")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         id: "add-order",
         className: "menu-admin__item"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
         to: "/admin/add-order"
-      }, "Add Order"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
+      }, "Add Order")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        id: "customer-portal",
+        className: "menu-admin__item"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "/"
+      }, "\u2192 Go to customer portal!"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
         to: "/login",
         className: "menu-admin__logout",
         onClick: this.props.handleLogout
-      }, "Logout babyyyy!")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Route"], {
+      }, "Logout babyyyy!")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
         path: "/admin/open-orders",
         render: function render(routeProps) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_admin_components_MainContent__WEBPACK_IMPORTED_MODULE_3__["default"], _extends({}, routeProps, {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_admin_components_MainContent__WEBPACK_IMPORTED_MODULE_2__["default"], _extends({}, routeProps, {
             content: "open-orders",
             token: _this3.props.token.token
           }));
         }
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Route"], {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
         path: "/admin/past-orders",
         render: function render(routeProps) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_admin_components_MainContent__WEBPACK_IMPORTED_MODULE_3__["default"], _extends({}, routeProps, {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_admin_components_MainContent__WEBPACK_IMPORTED_MODULE_2__["default"], _extends({}, routeProps, {
             content: "past-orders",
             token: _this3.props.token.token
           }));
         }
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Route"], {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
         path: "/admin/available-ingredients",
         render: function render(routeProps) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_admin_components_MainContent__WEBPACK_IMPORTED_MODULE_3__["default"], _extends({}, routeProps, {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_admin_components_MainContent__WEBPACK_IMPORTED_MODULE_2__["default"], _extends({}, routeProps, {
             content: "available-ingredients",
             token: _this3.props.token.token
           }));
         }
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Route"], {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
         path: "/admin/registered-customers",
         render: function render(routeProps) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_admin_components_MainContent__WEBPACK_IMPORTED_MODULE_3__["default"], _extends({}, routeProps, {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_admin_components_MainContent__WEBPACK_IMPORTED_MODULE_2__["default"], _extends({}, routeProps, {
             content: "registered-customers",
             token: _this3.props.token.token
           }));
         }
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Route"], {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
         path: "/admin/add-order",
         render: function render(routeProps) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_admin_components_MainContent__WEBPACK_IMPORTED_MODULE_3__["default"], _extends({}, routeProps, {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_admin_components_MainContent__WEBPACK_IMPORTED_MODULE_2__["default"], _extends({}, routeProps, {
             content: "add-order",
             token: _this3.props.token.token
           }));
         }
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Route"], {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
         path: "/admin",
         render: function render(routeProps) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Welcome to the admin area home!");
@@ -55683,13 +55688,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _Home_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Home.jsx */ "./resources/js/components/Home.jsx");
-/* harmony import */ var _customer_components_NavBar_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./customer_components/NavBar.jsx */ "./resources/js/components/customer_components/NavBar.jsx");
-/* harmony import */ var _customer_components_Checkout_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./customer_components/Checkout.jsx */ "./resources/js/components/customer_components/Checkout.jsx");
-/* harmony import */ var _AdminLogin_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./AdminLogin.jsx */ "./resources/js/components/AdminLogin.jsx");
-/* harmony import */ var _ErrorBoundary_jsx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./ErrorBoundary.jsx */ "./resources/js/components/ErrorBoundary.jsx");
+/* harmony import */ var _AdminLogin_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./AdminLogin.jsx */ "./resources/js/components/AdminLogin.jsx");
+/* harmony import */ var _customer_components_NavBar_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./customer_components/NavBar.jsx */ "./resources/js/components/customer_components/NavBar.jsx");
+/* harmony import */ var _ErrorBoundary_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ErrorBoundary.jsx */ "./resources/js/components/ErrorBoundary.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -55706,7 +55708,6 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
 
 
 
@@ -55741,28 +55742,28 @@ function (_React$Component) {
   _createClass(App, [{
     key: "render",
     value: function render() {
-      var _this2 = this;
-
       console.log('Step 1', 'App.js reached'); // Weird login bug troubleshooting
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["BrowserRouter"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_customer_components_NavBar_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
-        exact: true,
-        path: "/",
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["BrowserRouter"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+        path: "/login",
+        render: function render(routeProps) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_AdminLogin_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], routeProps);
+        }
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+        path: "/admin",
+        render: function render(routeProps) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_AdminLogin_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], routeProps);
+        }
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+        path: "/magic",
         render: function render(routeProps) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Home_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], routeProps);
         }
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
-        path: "/checkout",
+        path: "/",
         render: function render(routeProps) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_customer_components_Checkout_jsx__WEBPACK_IMPORTED_MODULE_5__["default"], _extends({}, routeProps, {
-            ingredientProps: _this2.state.ingredientProps
-          }));
-        }
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
-        path: "/login",
-        render: function render(routeProps) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_AdminLogin_jsx__WEBPACK_IMPORTED_MODULE_6__["default"], routeProps);
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Home_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], routeProps);
         }
       }))));
     }
@@ -55874,15 +55875,54 @@ function (_React$Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _customer_components_NavBar_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./customer_components/NavBar.jsx */ "./resources/js/components/customer_components/NavBar.jsx");
+/* harmony import */ var _customer_components_FrontPage_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./customer_components/FrontPage.jsx */ "./resources/js/components/customer_components/FrontPage.jsx");
+/* harmony import */ var _customer_components_Checkout_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./customer_components/Checkout.jsx */ "./resources/js/components/customer_components/Checkout.jsx");
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
-var Home = function Home(props) {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    style: {
-      width: "100%",
-      textAlign: "center"
+
+
+
+
+
+var Home = function Home(_ref) {
+  var match = _ref.match;
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    "pizza_1": {
+      "pizza_id": 2,
+      "pizza_ingredients": [3, 4, 4, 5]
     }
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "This is the home page"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Soon this will show the view created by Jayne & Adi")));
+  }),
+      _useState2 = _slicedToArray(_useState, 2),
+      ingredientProps = _useState2[0],
+      setIngredientProps = _useState2[1];
+
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["BrowserRouter"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_customer_components_NavBar_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    exact: true,
+    path: "/magic/checkout",
+    render: function render(routeProps) {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_customer_components_Checkout_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], _extends({}, routeProps, {
+        ingredientProps: ingredientProps
+      }));
+    }
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    exact: true,
+    path: "/magic",
+    render: function render(routeProps) {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_customer_components_FrontPage_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], routeProps);
+    }
+  })));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Home);
@@ -56069,92 +56109,6 @@ function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["default"] = (MainContent);
-
-/***/ }),
-
-/***/ "./resources/js/components/admin_components/NavBar.jsx":
-/*!*************************************************************!*\
-  !*** ./resources/js/components/admin_components/NavBar.jsx ***!
-  \*************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-
-
-var NavBar =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(NavBar, _React$Component);
-
-  function NavBar(props) {
-    _classCallCheck(this, NavBar);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(NavBar).call(this, props));
-  }
-
-  _createClass(NavBar, [{
-    key: "render",
-    value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "navBar-admin"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "#",
-        onClick: this.props.menuClick
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        id: "open-orders",
-        className: "menu-admin__item nostyle-links"
-      }, "Open Orders")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "#",
-        onClick: this.props.menuClick
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        id: "past-orders",
-        className: "menu-admin__item nostyle-links"
-      }, "Past Orders")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "#",
-        onClick: this.props.menuClick
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        id: "available-ingredients",
-        className: "menu-admin__item nostyle-links"
-      }, "Available Ingredients")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "#",
-        onClick: this.props.menuClick
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        id: "registered-customers",
-        className: "menu-admin__item nostyle-links"
-      }, "Registered Customers"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "#",
-        onClick: this.props.handleLogout,
-        className: "menu-admin__logout"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "Logout babyyyy!")));
-    }
-  }]);
-
-  return NavBar;
-}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
-
-/* harmony default export */ __webpack_exports__["default"] = (NavBar);
 
 /***/ }),
 
@@ -56607,27 +56561,6 @@ function (_React$Component) {
           "order": this.props.ingredientProps
         }
       });
-      /* fetch( 'http://127.0.0.1:8000/order/finalize', {
-          method: 'POST',
-          headers: {
-              'X-Requested-With': 'XMLHttpRequest',
-              'Content-Type': 'application/json',
-              'X-CSRF-TOKEN': this.state.csrf_token
-          },
-          body: JSON.stringify( {
-              'first_name': this.state.first_name,
-              'last_name': this.state.last_name,
-              'phone_number': this.state.phone_number,
-              'street_and_housenumber': this.state.street_and_housenumber,
-              'postcode': this.state.postcode,
-              'city': this.state.city,
-              'price': this.state.price,
-          } )
-      } )
-          .then( response => response.json() )
-          .then( data => {
-              console.log( data );
-          } ) */
     }
   }, {
     key: "handleChange",
@@ -56722,6 +56655,32 @@ function (_React$Component) {
 
 /***/ }),
 
+/***/ "./resources/js/components/customer_components/FrontPage.jsx":
+/*!*******************************************************************!*\
+  !*** ./resources/js/components/customer_components/FrontPage.jsx ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var FrontPage = function FrontPage(props) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    style: {
+      width: "100%",
+      textAlign: "center"
+    }
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "This is the home page"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Soon this will show the view created by Jayne & Adi")));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (FrontPage);
+
+/***/ }),
+
 /***/ "./resources/js/components/customer_components/NavBar.jsx":
 /*!****************************************************************!*\
   !*** ./resources/js/components/customer_components/NavBar.jsx ***!
@@ -56737,14 +56696,20 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var NavBar = function NavBar(props) {
+var NavBar = function NavBar(_ref) {
+  var match = _ref.match;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "navBar-admin"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     id: "builder",
     className: "menu-admin__item"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    to: "/login"
+    to: "/magic"
+  }, "Home")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    id: "builder",
+    className: "menu-admin__item"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "/login"
   }, "Login")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     id: "builder",
     className: "menu-admin__item"
@@ -56754,7 +56719,7 @@ var NavBar = function NavBar(props) {
     id: "checkout",
     className: "menu-admin__item"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    to: "/checkout"
+    to: "/magic/checkout"
   }, "Checkout")))));
 };
 

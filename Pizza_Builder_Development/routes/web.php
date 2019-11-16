@@ -11,13 +11,29 @@
 |
 */
 
+//  REACT CUSTOMER routes
 Route::get('/', function () {
-    return view('login.index');
+    return view('index');
 });
 
-Route::get('/login', function () {
-    return view('login.index');
+Route::get('/magic', function () {
+    return view('index');
 });
+
+Route::get('/magic/{any}', function ($any) {
+    return view('index');
+});
+
+//  REACT ADMIN routes
+
+Route::get('/login', function () {
+    return view('index');
+});
+
+Route::get('/admin', function () {
+    return view('index');
+});
+
 
 //  Passport controller
 Route::group([
@@ -35,7 +51,6 @@ Route::get('pizza/{id}/', 'PizzaController@show');
 //  Order Controller
 Route::get('order/{id}/', 'OrderController@show');      //  Show single order, not protected for now
 Route::post('order/finalize', 'OrderController@store');
-Route::get('ordersss', 'OrderController@test'); // DELETYE IF REACT DETAIL BOX WORKS
 
 //  EMAIL
 Route::get('email', 'EmailController@index');

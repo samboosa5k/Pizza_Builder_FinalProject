@@ -1,14 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const NavBar = ( props ) => {
+const NavBar = ( { match } ) => {
     return (
         <>
 
             <div className="navBar-admin">
                 <ul>
                     <li id="builder" className="menu-admin__item">
-                        <Link to="/login">Login</Link>
+                        <Link to="/magic">Home</Link>
+                    </li>
+
+                    <li id="builder" className="menu-admin__item">
+                        <a href="/login">Login</a>
                     </li>
 
                     <li id="builder" className="menu-admin__item">
@@ -16,7 +20,7 @@ const NavBar = ( props ) => {
                     </li>
 
                     <li id="checkout" className="menu-admin__item">
-                        <Link to="/checkout">Checkout</Link>
+                        <Link to='/magic/checkout'>Checkout</Link>
                     </li>
                 </ul>
             </div>

@@ -169,7 +169,7 @@ body {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
           flex-direction: column;
-  width: 240px;
+  min-width: 240px;
   height: 100vh;
   background-color: #17181a;
 }

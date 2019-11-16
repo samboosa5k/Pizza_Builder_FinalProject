@@ -3,9 +3,8 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Link, Redirect, Switch } from 'react-router-dom';
 
 import Home from './Home.jsx';
-import NavBar from './customer_components/NavBar.jsx';
-import Checkout from './customer_components/Checkout.jsx';
 import AdminLogin from './AdminLogin.jsx';
+import NavBar from './customer_components/NavBar.jsx';
 
 import ErrorBoundary from './ErrorBoundary.jsx';
 
@@ -28,22 +27,25 @@ class App extends React.Component {
         return (
             <>
                 <Router>
-                    <NavBar />
 
                     <Switch>
-                        <Route exact path='/' render={( routeProps ) => (
-                            <Home {...routeProps} />
-                        )} />
-
-                        <Route exact path='/checkout' render={( routeProps ) => (
-                            <Checkout {...routeProps} ingredientProps={this.state.ingredientProps} />
-                        )} />
-
                         {/* ADMIN ROUTES */}
                         <Route path='/login' render={( routeProps ) => (
                             <AdminLogin {...routeProps} />
                         )} />
 
+                        <Route path='/admin' render={( routeProps ) => (
+                            <AdminLogin {...routeProps} />
+                        )} />
+
+                        {/* CUSTOMER ROUTES */}
+                        <Route path='/magic' render={( routeProps ) => (
+                            <Home {...routeProps} />
+                        )} />
+
+                        <Route exact path='/' render={( routeProps ) => (
+                            <Home {...routeProps} />
+                        )} />
                     </Switch>
 
                 </Router>
